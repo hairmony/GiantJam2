@@ -28,6 +28,17 @@ window/stretch/aspect="expand"
 
 project/assembly_name="Pira2ite"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="projectile"
+2d_physics/layer_4="lure"
+2d_physics/layer_5="wall"
+2d_physics/layer_6="water"
+2d_physics/layer_7="air"
+2d_physics/layer_8="collectable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
