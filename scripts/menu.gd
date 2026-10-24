@@ -1,7 +1,6 @@
 class_name Menu
 extends Node2D
 
-## Scene the Play button opens. Assign this in the inspector.
 @export var play_scene: PackedScene
 
 @onready var playButton: Button = $UILayer/UI/Buttons/PlayButton

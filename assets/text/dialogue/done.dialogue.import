@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bpftnlatximap"
+path="res://.godot/imported/done.dialogue-50128da34dedbd779c4268edf7f24441.tres"
+
+[deps]
+
+source_file="res://assets/text/dialogue/done.dialogue"
+dest_files=["res://.godot/imported/done.dialogue-50128da34dedbd779c4268edf7f24441.tres"]
+
+[params]
+
+defaults=true

@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmj8cmrjcvu3c" path="res://assets/ui/FromBelowLogo.png" id="2_mhnvy"]
 [ext_resource type="AudioStream" uid="uid://boirof42sylhg" path="res://assets/music/AlienPirate.mp3" id="3_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://fnu004kbliyq" path="res://scenes/options.tscn" id="5_options"]
-
-[ext_resource type="PackedScene" path="res://scenes/minigame/minigameMain.tscn" id="6_minigame"]
+[ext_resource type="PackedScene" uid="uid://c7dfyeoekdry3" path="res://scenes/minigame/minigameMain.tscn" id="6_minigame"]
 
 [node name="Menu" type="Node2D" unique_id=1703769367]
 script = ExtResource("1_menu")

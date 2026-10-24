@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://depk86ypfmpqm"
+path="res://.godot/imported/halftime.dialogue-764d99b483990eaf7b2b1909fab8cb57.tres"
+
+[deps]
+
+source_file="res://assets/text/dialogue/halftime.dialogue"
+dest_files=["res://.godot/imported/halftime.dialogue-764d99b483990eaf7b2b1909fab8cb57.tres"]
+
+[params]
+
+defaults=true

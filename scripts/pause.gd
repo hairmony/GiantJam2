@@ -23,15 +23,18 @@ func _process(_elapsed: float) -> void:
 
 
 func onContinue() -> void:
-	isPaused = not isPaused
+	isPaused = false
+	get_tree().paused = false
 	queue_free()
 
 
 func onRestart() -> void:
 	isPaused = false
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 
 
 func onExit() -> void:
 	isPaused = false
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

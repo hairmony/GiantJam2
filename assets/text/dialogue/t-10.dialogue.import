@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bhbh3n8fqw8gv"
+path="res://.godot/imported/t-10.dialogue-6be86ec581d59e46d942c1ece03e9f01.tres"
+
+[deps]
+
+source_file="res://assets/text/dialogue/t-10.dialogue"
+dest_files=["res://.godot/imported/t-10.dialogue-6be86ec581d59e46d942c1ece03e9f01.tres"]
+
+[params]
+
+defaults=true
