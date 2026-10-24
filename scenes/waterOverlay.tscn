@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://my8edakdldg7"]
+
+[ext_resource type="Texture2D" uid="uid://1jvryv0vrosj" path="res://assets/sceneVisuals/wo'ah.jpg" id="1_7xnck"]
+
+[node name="Node2D" type="Node2D" unique_id=1064439014]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=721521834]
+modulate = Color(1, 1, 1, 0.2627451)
+visibility_layer = 16
+position = Vector2(571.99994, 332)
+scale = Vector2(0.41388887, 0.41975307)
+texture = ExtResource("1_7xnck")

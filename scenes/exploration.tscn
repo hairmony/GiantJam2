@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d1ckhr8bpxri8"]
+
+[ext_resource type="Script" uid="uid://crcbi55xqq3ux" path="res://scripts/eSpawnManager.gd" id="1_tut6i"]
+[ext_resource type="PackedScene" uid="uid://cf6kqv1wcgic" path="res://scenes/player.tscn" id="1_wjony"]
+[ext_resource type="PackedScene" uid="uid://j5jrnwjtdxan" path="res://scenes/e_collision.tscn" id="2_1yu1n"]
+[ext_resource type="PackedScene" uid="uid://my8edakdldg7" path="res://scenes/waterOverlay.tscn" id="4_wyjkc"]
+[ext_resource type="PackedScene" uid="uid://mncaucfiqkmm" path="res://scenes/sandOverlay.tscn" id="5_c4mc6"]
+[ext_resource type="PackedScene" uid="uid://b14kw4n8q3t1n" path="res://scenes/seaWeedOverlay.tscn" id="6_88ct5"]
+
+[sub_resource type="Curve2D" id="Curve2D_03514"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1128, 0, 0, 0, 0, 0, 1088, 24, 0, 0, 0, 0, 16, 8, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="exploration" type="Node" unique_id=196848650]
+script = ExtResource("1_tut6i")
+eSpawnScene = ExtResource("2_1yu1n")
+
+[node name="Player" parent="." unique_id=1926558782 instance=ExtResource("1_wjony")]
+z_index = 1
+position = Vector2(240, 450)
+
+[node name="eSpawnTimer" type="Timer" parent="." unique_id=1844165367]
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1115516935]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="pStart" type="Marker2D" parent="." unique_id=1805467664]
+position = Vector2(240, 450)
+
+[node name="Water" parent="." unique_id=1064439014 instance=ExtResource("4_wyjkc")]
+
+[node name="Sand" parent="." unique_id=703045629 instance=ExtResource("5_c4mc6")]
+
+[node name="SeaWeed" parent="." unique_id=319333486 instance=ExtResource("6_88ct5")]
+position = Vector2(-456, 200)
+
+[node name="SeaWeed2" parent="." unique_id=2080660188 instance=ExtResource("6_88ct5")]
+position = Vector2(528, 200)
+
+[node name="ePath" type="Path2D" parent="." unique_id=1098559738]
+curve = SubResource("Curve2D_03514")
+
+[node name="eSpawnLocation" type="PathFollow2D" parent="ePath" unique_id=571442288]
+
+[connection signal="timeout" from="eSpawnTimer" to="." method="_on_e_spawn_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
