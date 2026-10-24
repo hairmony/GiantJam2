@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/GJ2_GROUPONE_IDLE.mp3-f4c3b068a2caf2e9a78bc3e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
