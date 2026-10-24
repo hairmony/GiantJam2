@@ -3,6 +3,13 @@ extends Node2D
 const SHIP_SCENE := preload("res://scenes/Enemy.tscn")
 var _spawn_on_right := true
 
+func _ready() -> void:
+	var music := $Music as AudioStreamPlayer
+	music.process_mode = Node.PROCESS_MODE_ALWAYS
+	if music.stream != null and "loop" in music.stream:
+		music.stream.loop = true
+	music.play()
+
 func on_ship_sunk(ship_body: Node2D) -> void:
 	if is_instance_valid(ship_body):
 		# EnemyBody belongs to the complete encounter scene, including its visuals.

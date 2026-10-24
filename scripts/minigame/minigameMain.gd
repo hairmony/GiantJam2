@@ -11,6 +11,8 @@ var _exploration_process_mode: int
 var _previous_camera: Camera2D
 var _pause: Node = null
 var _finished := false
+var _hidden_exploration: Array[Node] = []
+var _exploration_music: AudioStreamPlayer
 
 func _enter_tree() -> void:
 	# Keep the exploration instance, but stop its movement and spawning.
@@ -19,6 +21,14 @@ func _enter_tree() -> void:
 	if _exploration != self and _exploration != null:
 		_exploration_process_mode = _exploration.process_mode
 		_exploration.process_mode = Node.PROCESS_MODE_DISABLED
+		for child in _exploration.get_children():
+			if child == self or not (child is CanvasItem) or not child.visible:
+				continue
+			child.visible = false
+			_hidden_exploration.append(child)
+		_exploration_music = _exploration.get_node_or_null("Music") as AudioStreamPlayer
+		if _exploration_music != null:
+			_exploration_music.stream_paused = true
 	_previous_camera = get_viewport().get_camera_2d()
 
 func _ready() -> void:
@@ -27,6 +37,10 @@ func _ready() -> void:
 	$Player.position = get_viewport_rect().get_center()
 	$Player.lives_changed.connect(_on_lives_changed)
 	_update_lives($Player.lives)
+	var music := $Music as AudioStreamPlayer
+	if music.stream != null and "loop" in music.stream:
+		music.stream.loop = true
+	music.play()
 	for edge in range(4):
 		var turret = TURRET_SCENE.instantiate()
 		turret.edge = edge
@@ -91,6 +105,15 @@ func _restore_exploration() -> void:
 	GameManager.minigameTimer = 0.0
 	if is_instance_valid(_exploration) and _exploration != self:
 		_exploration.process_mode = _exploration_process_mode
+	if is_instance_valid(_exploration_music):
+		_exploration_music.stream_paused = false
+	var music := get_node_or_null("Music") as AudioStreamPlayer
+	if music != null:
+		music.stop()
+	for node in _hidden_exploration:
+		if is_instance_valid(node):
+			node.visible = true
+	_hidden_exploration.clear()
 	if is_instance_valid(_previous_camera):
 		_previous_camera.make_current()
 

@@ -25,8 +25,10 @@ var playerVelocity: Vector2
 
 const TIMER_SCENE := preload("res://scenes/time_box.tscn")
 const QUOTA_SCENE := preload("res://scenes/qouta.tscn")
+const DEATH_SCENE := preload("res://scenes/death.tscn")
 var timer: TimerBox
 var quota_display: Node
+var _failed_day: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,6 +44,7 @@ func begin_play() -> void:
 	if timer == null:
 		timer = TIMER_SCENE.instantiate()
 		timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+		timer.finished.connect(_on_day_finished)
 		add_child(timer)
 	else:
 		timer.visible = true
@@ -75,6 +78,21 @@ func end_play() -> void:
 		if quota_display.has_method("stop"):
 			quota_display.stop()
 		quota_display.visible = false
+
+
+## Opens the death screen when the day ends below the quota.
+func _on_day_finished() -> void:
+	if score >= quota:
+		return
+	if _failed_day != null and is_instance_valid(_failed_day):
+		return
+	_failed_day = DEATH_SCENE.instantiate()
+	var scene := get_tree().current_scene
+	if scene != null:
+		scene.add_child(_failed_day)
+	else:
+		add_child(_failed_day)
+	get_tree().paused = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

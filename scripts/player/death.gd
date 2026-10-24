@@ -13,6 +13,8 @@ func _ready() -> void:
 func onRestart() -> void:
 	get_tree().paused = false
 	GameManager.begin_play()
+	if GameManager.timer != null:
+		GameManager.timer.start()
 	get_tree().reload_current_scene()
 
 
