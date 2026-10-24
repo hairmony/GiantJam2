@@ -10,6 +10,9 @@ var deathCount: int = 0
 var minigameTimer: float = 0
 var dayTimer: float = 0
 
+# enums
+enum MOVE_STATE {PLAYER, LURE}
+enum LURE_TYPE {DEFAULT, FISH1}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

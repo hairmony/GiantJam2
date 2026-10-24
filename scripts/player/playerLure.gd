@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-enum LURE_TYPE {DEFAULT, FISH1}
 var lurePower: float = 1.0
 var lureLength: float = 1.0
 var lureSpeed: float = 1.0
-var moveState: bool = false # if the lure is controllable currently.
+
+@export var movementHandler: Node
+var moveState = movementHandler.moveState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
