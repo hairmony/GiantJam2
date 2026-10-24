@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0py4f7a1kb3p"
-path="res://.godot/imported/GAudit_YellowDot.png-e76f55a29921aa0acc71a57ef52bc286.ctex"
+uid="uid://b0r7yaerh3hpa"
+path="res://.godot/imported/Angler.PNG-56030bffe0d4527167cc789a30d44811.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigame/GAudit_YellowDot.png"
-dest_files=["res://.godot/imported/GAudit_YellowDot.png-e76f55a29921aa0acc71a57ef52bc286.ctex"]
+source_file="res://assets/minigame/Angler.PNG"
+dest_files=["res://.godot/imported/Angler.PNG-56030bffe0d4527167cc789a30d44811.ctex"]
 
 [params]
 

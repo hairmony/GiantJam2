@@ -40,6 +40,11 @@ func _ready() -> void:
 	get_viewport().size_changed.connect(_on_credits_resized)
 	if creditsPanel != null:
 		creditsPanel.resized.connect(_on_credits_resized)
+	var music := $Music as AudioStreamPlayer
+	if music != null and music.stream != null and "loop" in music.stream:
+		music.stream.loop = true
+		if not music.playing:
+			music.play()
 
 
 func _apply_text() -> void:
