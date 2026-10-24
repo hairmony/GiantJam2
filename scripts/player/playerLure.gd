@@ -1,11 +1,9 @@
 extends CharacterBody2D
-
+var MOVE_SCALE: int = 3000
 var lurePower: float = 1.0
 var lureLength: float = 1.0
 var lureSpeed: float = 1.0
 
-@export var movementHandler: Node
-var moveState = movementHandler.moveState
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,11 +12,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(moveState):
-		pass
+	var canMove: bool = GameManager.moveState == GameManager.LureMoveState
+	if canMove:
+		velocity = GameManager.playerVelocity * lureSpeed * MOVE_SCALE
+		move_and_slide()
+	pass
 	
 func _physics_process(delta: float) -> void:
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:
-		var collision_point = collision_info.get_position()
+	#var collision_info = move_and_collide(GameManager.playerVelocity * lureSpeed)
+	#if collision_info:
+		#var collision_point = collision_info.get_position()
 	pass
