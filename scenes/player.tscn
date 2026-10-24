@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf6kqv1wcgic"]
 
 [ext_resource type="Script" uid="uid://b5laet0eedgdn" path="res://scripts/player/playerBase.gd" id="1_dqkch"]
+[ext_resource type="Material" path="res://shaders/white_outline.tres" id="outline_material"]
 [ext_resource type="Texture2D" uid="uid://b06okka4uyrel" path="res://assets/sprites/Angler.PNG" id="2_fjrip"]
 [ext_resource type="Script" uid="uid://drg1jbypexjhr" path="res://scripts/player/playerMove.gd" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://dw1ltxinvt064" path="res://scenes/line_2d.gd" id="4_fjrip"]
@@ -42,6 +43,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_qlg0r")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="PlayerBody/LureBody" unique_id=697763306]
+material = ExtResource("outline_material")
 position = Vector2(4, 2.9999998)
 scale = Vector2(0.033333335, 0.03846155)
 texture = ExtResource("4_smehm")

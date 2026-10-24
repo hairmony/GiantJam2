@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dltrbhi3iwhsn"]
 
 [ext_resource type="Script" uid="uid://duc2hkrp1eody" path="res://scripts/minigame/Bullet.gd" id="1_v8qja"]
+[ext_resource type="Material" path="res://shaders/white_outline.tres" id="outline_material"]
 [ext_resource type="Texture2D" uid="uid://bqtc230ddhlxh" path="res://assets/minigame/Hook.png" id="2_g8cgb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
@@ -12,6 +13,7 @@ collision_mask = 256
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=480373951]
+material = ExtResource("outline_material")
 scale = Vector2(0.15789473, 0.15789476)
 texture = ExtResource("2_g8cgb")
 

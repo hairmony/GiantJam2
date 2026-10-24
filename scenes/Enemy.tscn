@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bugtdjb4w2enh"]
 
 [ext_resource type="Script" uid="uid://dohxvv57mk7mg" path="res://scripts/mobs/enemyBase.gd" id="1_3gvst"]
+[ext_resource type="Material" path="res://shaders/white_outline.tres" id="outline_material"]
 [ext_resource type="Texture2D" uid="uid://bqtc230ddhlxh" path="res://assets/minigame/Hook.png" id="2_55jtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvst"]
@@ -23,6 +24,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_3gvst")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="EnemyBody" unique_id=749675076]
+material = ExtResource("outline_material")
 position = Vector2(-7.1525574e-07, -22.5)
 scale = Vector2(0.026315799, 0.02536232)
 texture = ExtResource("2_55jtl")

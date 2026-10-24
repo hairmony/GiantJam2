@@ -1,8 +1,8 @@
 extends Node
 
-const dayLength: float = 120
+const dayLength: float = 70
 
-var quota: float = 6
+var quota: float = 3
 var score: float = 0
 var dosh: float = 0
 var dayCount: int = 0
