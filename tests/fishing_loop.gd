@@ -12,7 +12,7 @@ func check(condition: bool, message: String) -> void:
 
 func run() -> void:
 	var manager := root.get_node("GameManager")
-	check(manager.dayLength == 60.0 and manager.quota == 3.0, "Day lasts sixty seconds with three quota wins")
+	check(manager.dayLength == 70.0 and manager.quota == 3.0, "Day lasts seventy seconds with three quota wins")
 	manager.score = 0
 	manager.dayKillCount = 0
 	manager.totalKillCount = 0
@@ -51,6 +51,30 @@ func run() -> void:
 		round_node.set_process(false)
 		check(round_node.get_node("Player").lives == 3, "New round replenishes three lives")
 		check(quota_hud.visible and quota_hud.label.is_visible_in_tree(), "Quota remains visible during minigame")
+		if win == 1:
+			var player := round_node.get_node("Player") as Area2D
+			for i in range(3):
+				player.invulnerability_time = 0.0
+				var bullet := Area2D.new()
+				bullet.add_to_group("bullets")
+				root.add_child(bullet)
+				player._on_area_entered(bullet)
+			await process_frame
+			await process_frame
+			check(not is_instance_valid(round_node) and not paused, "Lost round returns to fishing without game over")
+			check(is_instance_valid(ship_root) and is_instance_valid(ship_body), "Lost encounter is still available")
+			check(manager.score == 0 and manager.totalKillCount == 0, "Loss awards no quota or ship")
+			check(fishing.can_process() and not manager.isMinigame, "Fishing resumes after loss")
+			ship_body.get_node("Area2D").body_entered.emit(lure)
+			await process_frame
+			for child in fishing.get_children():
+				if child.has_node("HUD/LivesLabel"):
+					round_node = child
+			check(is_instance_valid(round_node), "Same encounter can be entered again after loss")
+			if not is_instance_valid(round_node):
+				break
+			round_node.set_process(false)
+			check(round_node.get_node("Player").lives == 3, "Retry starts with three lives")
 		round_node._process(10.0)
 		await process_frame
 		await process_frame

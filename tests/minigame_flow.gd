@@ -76,13 +76,17 @@ func run() -> void:
 	for i in range(3):
 		player.invulnerability_time = 0.0
 		hit(player)
+	check(player.lives == 0, "Third hit ends the round")
 	await process_frame
-	check(player.lives == 0 and paused, "Third hit pauses on game over")
-	check(round_node.get_node("Death/UI/PauseText").text == "GAME OVER", "Game over screen is shown")
-	check(game_manager.score == 1, "Loss gives no reward")
-	paused = false
+	await process_frame
+	check(not is_instance_valid(round_node) and not paused, "Loss removes the round without game over")
+	check(game_manager.score == 1 and game_manager.totalKillCount == 1, "Loss gives no quota or ship reward")
+	check(not game_manager.isMinigame and world.can_process(), "Loss resumes exploration")
+	check(root.get_viewport().get_camera_2d() == camera, "Loss restores the fishing camera")
+	check(game_manager.dayTimer == 27.0, "Loss preserves the day timer")
+	round_node = make_round()
+	check(round_node.get_node("Player").lives == 3, "A fresh round is available after losing")
 	round_node.queue_free()
 	await process_frame
-	check(not game_manager.isMinigame and world.can_process(), "Cleanup restores exploration")
 	print("Minigame flow: %d failure(s)" % failures)
 	quit(failures)

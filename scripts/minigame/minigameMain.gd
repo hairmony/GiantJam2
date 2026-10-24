@@ -4,7 +4,6 @@ const ROUND_SECONDS := 10.0
 const HIT_PENALTY_SECONDS := 5.0
 const TURRET_SCENE := preload("res://scenes/minigame/turret.tscn")
 const PAUSE_SCENE := preload("res://scenes/pause.tscn")
-const DEATH_SCENE := preload("res://scenes/death.tscn")
 
 var source_ship: Node2D
 var _exploration: Node
@@ -37,7 +36,7 @@ func _ready() -> void:
 		add_child(turret)
 
 func _process(delta: float) -> void:
-	if _finished:
+	if _finished or GameManager.run_ended:
 		return
 	GameManager.minigameTimer = maxf(GameManager.minigameTimer - delta, 0.0)
 	if GameManager.minigameTimer <= 0.0:
@@ -58,26 +57,32 @@ func _update_lives(lives: int) -> void:
 	$HUD/LivesLabel.text = "LIVES %d / %d" % [lives, $Player.MAX_LIVES]
 
 func _on_lives_changed(lives: int) -> void:
-	if _finished:
+	if _finished or GameManager.run_ended:
 		return
 	GameManager.minigameTimer += HIT_PENALTY_SECONDS
 	_update_lives(lives)
 	if lives == 0:
 		_finished = true
-		_show_game_over.call_deferred()
+		_finish_loss.call_deferred()
 
-func _show_game_over() -> void:
-	GameManager.deathCount += 1
-	add_child(DEATH_SCENE.instantiate())
-	get_tree().paused = true
+func _finish_loss() -> void:
+	if GameManager.run_ended:
+		return
+	# Keep the encounter available and resume fishing without awarding a win.
+	_return_to_fishing()
 
 func _finish_win() -> void:
+	if GameManager.run_ended:
+		return
 	# This is the only reward path; third-hit losses never award a ship.
 	GameManager.record_minigame_win()
 	if is_instance_valid(_exploration) and _exploration.has_method("on_ship_sunk"):
 		_exploration.on_ship_sunk(source_ship)
 	elif is_instance_valid(source_ship):
 		source_ship.queue_free()
+	_return_to_fishing()
+
+func _return_to_fishing() -> void:
 	if _exploration == self:
 		# Support running the minigame scene directly in the editor.
 		get_tree().change_scene_to_file("res://scenes/exploration.tscn")

@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("lure") and not GameManager.isMinigame:
+	if body.is_in_group("lure") and not GameManager.isMinigame and not GameManager.run_ended:
 		GameManager.isMinigame = true
 		# Instantiation changes processing and collision state outside physics callbacks.
 		load_sub_scene.call_deferred("res://scenes/minigame/minigameMain.tscn")
