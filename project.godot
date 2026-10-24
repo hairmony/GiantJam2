@@ -11,16 +11,24 @@ config_version=5
 [application]
 
 config/name="Pira2ite"
+<<<<<<< Updated upstream
 run/main_scene="res://scenes/menu.tscn"
+=======
+run/main_scene="uid://c7dfyeoekdry3"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/stretch_mode=4
 boot_splash/image="uid://brveli4d50xsg"
 config/icon="res://icon.svg"
+<<<<<<< Updated upstream
 boot_splash/minimum_display_time=1200
 
 [autoload]
 
 Flx="*res://scripts/flx.gd"
+=======
+<<<<<<<HEADrun/main_scene="res://Minigame.tscn"
+>>>>>>> Stashed changes
 
 [display]
 
