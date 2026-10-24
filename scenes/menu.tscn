@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dmmwm7d5pwaa4"]
 
-[ext_resource type="Script" uid="uid://bj8a7fq6g221v" path="res://scripts/menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://bj8a7fq6g221v" path="res://scripts/global_logic/menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" uid="uid://qk20rxdf8126" path="res://scenes/exploration.tscn" id="2_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://cmj8cmrjcvu3c" path="res://assets/icons/FromBelowLogo.png" id="2_mhnvy"]
 [ext_resource type="AudioStream" uid="uid://boirof42sylhg" path="res://assets/music/AlienPirate.mp3" id="3_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://fnu004kbliyq" path="res://scenes/options.tscn" id="5_options"]
 
 [node name="Menu" type="Node2D" unique_id=1703769367]
 script = ExtResource("1_menu")
+play_scene = ExtResource("2_4ytvr")
 
 [node name="Backdrop" type="Sprite2D" parent="." unique_id=354185931]
 texture_filter = 1
