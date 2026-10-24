@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dltrbhi3iwhsn"]
 
-[ext_resource type="Script" uid="uid://duc2hkrp1eody" path="res://Bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://dndqnharunlrj" path="res://simple-white-circle-and-drop-shadow-png.webp" id="2_t4vbm"]
+[ext_resource type="Script" uid="uid://duc2hkrp1eody" path="res://scripts/minigame/Bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dndqnharunlrj" path="res://assets/simple-white-circle-and-drop-shadow-png.webp" id="2_t4vbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
 radius = 9.485046

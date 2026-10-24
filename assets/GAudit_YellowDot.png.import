@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4bv5akoctki4"
-path="res://.godot/imported/GAudit_YellowDot.png-749402af45a2d8e56a3cc858cd0a0edd.ctex"
+path="res://.godot/imported/GAudit_YellowDot.png-dd9e717df4ded92587c36de974c088cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GAudit_YellowDot.png"
-dest_files=["res://.godot/imported/GAudit_YellowDot.png-749402af45a2d8e56a3cc858cd0a0edd.ctex"]
+source_file="res://assets/GAudit_YellowDot.png"
+dest_files=["res://.godot/imported/GAudit_YellowDot.png-dd9e717df4ded92587c36de974c088cb.ctex"]
 
 [params]
 

@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5laet0eedgdn" path="res://scripts/player/playerBase.gd" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://drg1jbypexjhr" path="res://scripts/player/playerMove.gd" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://c4tfojedq5yhf" path="res://assets/icons/icon.svg" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://cwi5w6snbw68q" path="res://scripts/player/playerLure.gd" id="4_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://b36d0b42s6jvv" path="res://icon.svg" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://b36d0b42s6jvv" path="res://assets/icons/icon.svg" id="4_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngi1j"]
 size = Vector2(16, 20)
@@ -26,7 +25,7 @@ shape = SubResource("RectangleShape2D_ngi1j")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="PlayerBody" unique_id=352671064]
 scale = Vector2(0.078125, 0.078125)
-texture = ExtResource("2_i3pqv")
+texture = ExtResource("4_tuyoq")
 
 [node name="LureBody" type="CharacterBody2D" parent="." unique_id=1262130314]
 script = ExtResource("4_qlg0r")

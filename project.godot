@@ -15,16 +15,17 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/stretch_mode=4
 boot_splash/image="uid://brveli4d50xsg"
-config/icon="res://icon.svg"
+config/icon="res://assets/icons/icon.svg"
 boot_splash/minimum_display_time=1200
 
-[autoload]
+[audio]
 
-Flx="*res://scripts/flx.gd"
+buses/default_bus_layout="res://assets/default_bus_layout.tres"
 
 [autoload]
 
 GameManager="*uid://bpslyisjiqn2q"
+Flx="*res://scripts/flx.gd"
 
 [display]
 
@@ -62,6 +63,11 @@ toggle_move_state={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -73,14 +79,6 @@ toggle_move_state={
 2d_physics/layer_6="water"
 2d_physics/layer_7="air"
 2d_physics/layer_8="collectable"
-
-[input]
-
-pause={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
 
 [physics]
 

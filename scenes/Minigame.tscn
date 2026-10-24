@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7dfyeoekdry3"]
 
-[ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://MinigamePlayer.gd" id="1_006nn"]
-[ext_resource type="Texture2D" uid="uid://d4bv5akoctki4" path="res://GAudit_YellowDot.png" id="1_26mrl"]
-[ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://Main.gd" id="1_v0jcj"]
+[ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://scripts/minigame/MinigamePlayer.gd" id="1_006nn"]
+[ext_resource type="Texture2D" uid="uid://d4bv5akoctki4" path="res://assets/GAudit_YellowDot.png" id="1_26mrl"]
+[ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://scripts/minigame/MinigameMain.gd" id="1_v0jcj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqtq1"]
 radius = 5.0

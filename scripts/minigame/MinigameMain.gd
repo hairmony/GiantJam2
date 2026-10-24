@@ -1,6 +1,6 @@
 extends Node2D
 
-var turret_scene = preload("res://turret.tscn")
+var turret_scene = preload("res://scenes/turret.tscn")
 
 func _ready() -> void:
 	$Player.position = get_viewport_rect().get_center()
