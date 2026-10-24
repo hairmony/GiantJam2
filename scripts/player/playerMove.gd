@@ -1,18 +1,13 @@
 extends Node2D
 
-@export var pSpeed = 400
 var screen_size
-
-var playerMoveState = GameManager.MOVE_STATE.PLAYER
-var LureMoveState = GameManager.MOVE_STATE.LURE
-var moveState = playerMoveState
 
 func toggleMoveState(): 
 	# toggles between player and lure movement on spacebar press.
-	if moveState == playerMoveState:
-		moveState = LureMoveState
-	else: moveState = playerMoveState
-
+	if GameManager.moveState == GameManager.playerMoveState:
+		GameManager.moveState = GameManager.LureMoveState
+	else: GameManager.moveState = GameManager.playerMoveState
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -34,10 +29,12 @@ func _process(delta):
 		velocity.y -= 1
 
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * pSpeed
-		$AnimatedSprite2D.play()
+		velocity = velocity.normalized()
+		# $AnimatedSprite2D.play()
 	else:
-		$AnimatedSprite2D.stop()
+		pass
+		# $AnimatedSprite2D.stop()
 		
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	GameManager.playerVelocity = velocity * delta
+	# position += velocity * delta
+	# position = position.clamp(Vector2.ZERO, screen_size)
