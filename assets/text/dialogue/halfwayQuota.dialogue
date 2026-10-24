@@ -1,5 +1,5 @@
 ~ start
-if GameManager.dayTimer <= GameManager.dayLength/2:
+if GameManager.dayTimer >= GameManager.dayLength/2:
 	Boss: Your ahead of schedule! Keep this up and you may be able to eat today.
 else:
 	Boss: HUSTLE.
