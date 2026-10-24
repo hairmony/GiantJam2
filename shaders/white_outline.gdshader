@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // Width is in screen pixels, including when the fishing camera zooms in.
-uniform float outline_width : hint_range(0.0, 6.0) = 1.5;
+uniform float outline_width : hint_range(0.0, 6.0) = 1.25;
 varying vec4 sprite_tint;
 
 void vertex() {

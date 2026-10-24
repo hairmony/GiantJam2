@@ -18,8 +18,7 @@ func _ready() -> void:
 	events = [
 		TimerEvent.new("test", 0, DialogueScript.run.bind("res://assets/text/dialogue/intro.dialogue")),
 		TimerEvent.new("test", (GameManager.dayLength/2), DialogueScript.run.bind("res://assets/text/dialogue/halftime.dialogue")),
-		TimerEvent.new("test", (GameManager.dayLength-10), DialogueScript.run.bind("res://assets/text/dialogue/t-10.dialogue")),
-		TimerEvent.new("test", (GameManager.dayLength-1), DialogueScript.run.bind("res://assets/text/dialogue/done.dialogue"))
+		TimerEvent.new("test", (GameManager.dayLength-10), DialogueScript.run.bind("res://assets/text/dialogue/t-10.dialogue"))
 	]
 	
 	update_label()
@@ -31,13 +30,13 @@ func _process(delta: float) -> void:
 	if not running:
 		return
 
-	GameManager.dayTimer += delta
+	GameManager.dayTimer = minf(GameManager.dayTimer + delta, GameManager.dayLength)
 	update_label()
-	check_events()
-
 	if GameManager.dayTimer >= GameManager.dayLength:
 		running = false
 		finished.emit()
+		return
+	check_events()
 
 
 ## Starts the timer from 0.
@@ -45,6 +44,7 @@ func start() -> void:
 	GameManager.dayTimer = 0.0
 	nextEvent = 0
 	running = true
+	update_label()
 
 
 ## Stops the timer without resetting it.
@@ -59,7 +59,7 @@ func reset() -> void:
 	running = false
 
 func update_label() -> void:
-	label.text = "%.0f" % [GameManager.dayLength - GameManager.dayTimer]
+	label.text = "%d" % ceili(maxf(GameManager.dayLength - GameManager.dayTimer, 0.0))
 
 ## Checks whether the next event should happen.
 func check_events() -> void:
