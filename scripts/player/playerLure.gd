@@ -12,11 +12,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+	
+func _physics_process(delta: float) -> void:
 	var canMove: bool = GameManager.moveState == GameManager.LureMoveState
 	if canMove:
 		velocity = GameManager.playerVelocity * lureSpeed
 		move_and_slide()
-	pass
-	
-func _physics_process(delta: float) -> void:
 	pass

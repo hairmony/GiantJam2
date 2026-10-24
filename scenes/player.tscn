@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b36d0b42s6jvv" path="res://assets/icons/icon.svg" id="4_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngi1j"]
-size = Vector2(16, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(8, 8)
@@ -17,6 +16,7 @@ size = Vector2(8, 8)
 zoom = Vector2(5.005, 5.005)
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=871408936]
+collision_mask = 10
 script = ExtResource("1_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" unique_id=1851745391]
@@ -28,6 +28,7 @@ scale = Vector2(0.078125, 0.078125)
 texture = ExtResource("4_tuyoq")
 
 [node name="LureBody" type="CharacterBody2D" parent="." unique_id=1262130314]
+collision_layer = 8
 script = ExtResource("4_qlg0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LureBody" unique_id=280148801]

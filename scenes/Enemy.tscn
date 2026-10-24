@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bugtdjb4w2enh"]
+
+[ext_resource type="Script" uid="uid://dohxvv57mk7mg" path="res://scripts/mobs/enemyBase.gd" id="1_3gvst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvst"]
+size = Vector2(8, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55jtl"]
+load_path = "res://.godot/imported/icon.svg-7c8e6dfe2213e2029f33175ecfc9166b.ctex"
+
+[node name="Enemy" type="Node" unique_id=625473931]
+
+[node name="EnemyBody" type="CharacterBody2D" parent="." unique_id=1761480814]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_3gvst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody" unique_id=891379471]
+position = Vector2(-3.8146973e-06, -14.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_3gvst")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="EnemyBody" unique_id=749675076]
+position = Vector2(-1.9073486e-06, -14.5)
+scale = Vector2(0.031249989, 0.0546875)
+texture = SubResource("CompressedTexture2D_55jtl")
