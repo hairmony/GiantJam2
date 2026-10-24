@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum lureType {DEFAULT, FISH1}
+enum LURE_TYPE {DEFAULT, FISH1}
 var lurePower: float = 1.0
 var lureLength: float = 1.0
 var lureSpeed: float = 1.0
