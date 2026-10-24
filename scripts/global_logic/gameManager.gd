@@ -35,6 +35,10 @@ func _ready() -> void:
 
 ## Shows the day timer over whatever scene Play opened.
 func begin_play() -> void:
+	isMinigame = false
+	minigameTimer = 0.0
+	score = 0
+	dayKillCount = 0
 	if timer == null:
 		timer = TIMER_SCENE.instantiate()
 		timer.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -50,6 +54,15 @@ func begin_play() -> void:
 		quota_display.visible = true
 		if quota_display.has_method("start"):
 			quota_display.start()
+
+
+## One successful encounter earns one quota win, capped at the target.
+func record_minigame_win() -> void:
+	score = minf(score + 1.0, quota)
+	dayKillCount += 1
+	totalKillCount += 1
+	if is_instance_valid(quota_display):
+		quota_display.update_label()
 
 
 ## Hides the day timer when leaving back to the menu.

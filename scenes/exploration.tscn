@@ -4,7 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bugtdjb4w2enh" path="res://scenes/Enemy.tscn" id="2_26ty4"]
 [ext_resource type="PackedScene" path="res://scenes/screen_background.tscn" id="3_bg"]
 
+[ext_resource type="Script" path="res://scripts/global_logic/exploration.gd" id="4_loop"]
+
 [node name="Exploration" type="Node2D" unique_id=213264287]
+
+script = ExtResource("4_loop")
 
 [node name="ScreenBackground" parent="." instance=ExtResource("3_bg")]
 

@@ -1,10 +1,10 @@
 extends Area2D
 
-signal health_changed(health: int)
+signal lives_changed(lives: int)
 
 const speed = 200
-const max_health = 3
-var health = max_health
+const MAX_LIVES := 3
+var lives := MAX_LIVES
 var invulnerability_time = 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -36,13 +36,11 @@ func _process(delta: float) -> void:
 	position = position.clamp(bounds.position, bounds.end)
 
 func _on_area_entered(area: Area2D) -> void:
-	if not area.is_in_group("bullets") or health <= 0:
+	if not area.is_in_group("bullets") or lives <= 0 or GameManager.minigameTimer <= 0.0:
 		return
 	area.queue_free()
 	if invulnerability_time > 0.0:
 		return
-	health = maxi(health - 1, 0)
+	lives = maxi(lives - 1, 0)
 	invulnerability_time = 0.5
-	health_changed.emit(health)
-	if health == 0:
-		get_tree().paused = true
+	lives_changed.emit(lives)

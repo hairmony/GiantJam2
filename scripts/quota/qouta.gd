@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 ## Emitted when the timer reaches its limit.
 signal finished
@@ -33,6 +33,8 @@ func _process(_delta: float) -> void:
 
 ## Shows the quota without changing the day timer.
 func start() -> void:
+	nextEvent = 0
+	update_label()
 	running = true
 
 
@@ -48,14 +50,14 @@ func reset() -> void:
 	running = false
 
 func update_label() -> void:
-	label.text = "ENEMIES SUNK: %d/%d" % [GameManager.score, GameManager.quota]
+	label.text = "QUOTA WINS: %d / %d" % [mini(int(GameManager.score), int(GameManager.quota)), int(GameManager.quota)]
 
 ## Checks whether the next event should happen.
 func check_events() -> void:
 	while nextEvent < events.size():
 		var event: QoutaEvent = events[nextEvent]
 
-		if event.trigger_score >= GameManager.score:
+		if event.trigger_score > GameManager.score:
 			break
 
 		event.handler.call()

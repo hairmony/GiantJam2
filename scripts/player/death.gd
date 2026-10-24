@@ -4,7 +4,7 @@ extends CanvasLayer
 func _ready() -> void:
 	var title := get_node_or_null("UI/PauseText")
 	if title != null:
-		title.text = "DEAD"
+		title.text = "GAME OVER"
 	var cont := get_node_or_null("UI/ContinueButton")
 	if cont != null:
 		cont.visible = false
@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func onRestart() -> void:
 	get_tree().paused = false
+	GameManager.begin_play()
 	get_tree().reload_current_scene()
 
 
