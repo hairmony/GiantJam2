@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cdti1d63bglmb"]
+
+[ext_resource type="Script" uid="uid://cqwmq8mwldkhq" path="res://scripts/qouta.gd" id="1_uenw2"]
+
+[node name="Qouta" type="Node2D" unique_id=1661037634 node_paths=PackedStringArray("label")]
+script = ExtResource("1_uenw2")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="." unique_id=2022223564]
+offset_left = 387.0
+offset_top = 1.0
+offset_right = 427.0
+offset_bottom = 24.0
+horizontal_alignment = 1

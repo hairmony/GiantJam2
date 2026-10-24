@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://fnu004kbliyq"]
+
+[ext_resource type="Script" uid="uid://wj24b6cgcmt0" path="res://scripts/options.gd" id="1_options"]
+
+[node name="Options" type="CanvasLayer" unique_id=433388426]
+script = ExtResource("1_options")
+
+[node name="Panel" type="Control" parent="." unique_id=1900000010]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Panel" unique_id=1098425830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ShipButton" type="Button" parent="Panel" unique_id=1900000011]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.5888889
+anchor_right = 0.2109375
+anchor_bottom = 0.65
+theme_override_font_sizes/font_size = 29
+text = "N/A"
+
+[node name="MusicLabel" type="Label" parent="Panel" unique_id=1341274520]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.6777778
+anchor_right = 0.2109375
+anchor_bottom = 0.7055556
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Panel" unique_id=1880434407]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.7055556
+anchor_right = 0.2109375
+anchor_bottom = 0.75
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxLabel" type="Label" parent="Panel" unique_id=1900000002]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.7611111
+anchor_right = 0.2109375
+anchor_bottom = 0.7888889
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Panel" unique_id=1900000003]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.7888889
+anchor_right = 0.2109375
+anchor_bottom = 0.8333333
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="Panel" unique_id=947676795]
+layout_mode = 1
+anchor_left = 0.0390625
+anchor_top = 0.8555556
+anchor_right = 0.2109375
+anchor_bottom = 0.9166667
+theme_override_font_sizes/font_size = 29
+text = "Back"
+
+[connection signal="value_changed" from="Panel/MusicSlider" to="." method="setMusicVolume"]
+[connection signal="value_changed" from="Panel/SfxSlider" to="." method="setSfxVolume"]
+[connection signal="pressed" from="Panel/ShipButton" to="." method="cycleShipChoice"]
+[connection signal="pressed" from="Panel/BackButton" to="." method="backToMenu"]

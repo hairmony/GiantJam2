@@ -1,15 +1,5 @@
 [gd_scene format=3 uid="uid://cf6kqv1wcgic"]
 
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://drg1jbypexjhr" path="res://playerMove.gd" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://c4tfojedq5yhf" path="res://icon.svg" id="2_i3pqv"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ngi1j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngi1j"]
-
-[node name="Player" type="Area2D" unique_id=1926558782]
-=======
 [ext_resource type="Texture2D" uid="uid://b36d0b42s6jvv" path="res://assets/icons/icon.svg" id="2_g2els"]
 [ext_resource type="Script" uid="uid://drg1jbypexjhr" path="res://scripts/playerMove.gd" id="2_hqtel"]
 
@@ -19,23 +9,14 @@
 size = Vector2(107, 104)
 
 [node name="Player" type="CharacterBody2D" unique_id=1165883635]
->>>>>>> Stashed changes
 script = ExtResource("2_hqtel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=170405815]
 sprite_frames = SubResource("SpriteFrames_ngi1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1851745391]
-<<<<<<< Updated upstream
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_ngi1j")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170882523]
-texture = ExtResource("2_i3pqv")
-=======
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_tut6i")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170882523]
 texture = ExtResource("2_g2els")
->>>>>>> Stashed changes
