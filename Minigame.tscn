@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c7dfyeoekdry3"]
+
+[ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://MinigamePlayer.gd" id="1_006nn"]
+[ext_resource type="Texture2D" uid="uid://d4bv5akoctki4" path="res://GAudit_YellowDot.png" id="1_26mrl"]
+[ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://Main.gd" id="1_v0jcj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqtq1"]
+radius = 5.0
+
+[node name="Main" type="Node2D" unique_id=1278801107]
+script = ExtResource("1_v0jcj")
+
+[node name="Player" type="Area2D" parent="." unique_id=126965628]
+script = ExtResource("1_006nn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1265107294]
+scale = Vector2(0.08695652, 0.08695652)
+texture = ExtResource("1_26mrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1172784682]
+shape = SubResource("CircleShape2D_pqtq1")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="HUD"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 216.0
+offset_bottom = 40.0
+mouse_filter = 2
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 280.0
+offset_bottom = 70.0
+mouse_filter = 2
+text = "HP 10 / 10"
+
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]

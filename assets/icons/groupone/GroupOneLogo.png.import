@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bywbfyngelk07"
-path="res://.godot/imported/GroupOneBrandface.png-6da9878ed0f72a90d28618e4565540a6.ctex"
+uid="uid://b556wxjlkrjvn"
+path="res://.godot/imported/GroupOneLogo.png-139f471e454ce98fb6918bde96e58ef5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/GroupOneBrandface.png"
-dest_files=["res://.godot/imported/GroupOneBrandface.png-6da9878ed0f72a90d28618e4565540a6.ctex"]
+source_file="res://assets/icons/groupone/GroupOneLogo.png"
+dest_files=["res://.godot/imported/GroupOneLogo.png-139f471e454ce98fb6918bde96e58ef5.ctex"]
 
 [params]
 

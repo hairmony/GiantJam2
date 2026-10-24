@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dmmwm7d5pwaa4"]
+
+[ext_resource type="Script" uid="uid://bj8a7fq6g221v" path="res://scripts/menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://cmj8cmrjcvu3c" path="res://assets/icons/FromBelowLogo.png" id="2_mhnvy"]
+[ext_resource type="AudioStream" uid="uid://boirof42sylhg" path="res://assets/music/AlienPirate.mp3" id="3_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://fnu004kbliyq" path="res://scenes/options.tscn" id="5_options"]
+
+[node name="Menu" type="Node2D" unique_id=1703769367]
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=354185931]
+texture_filter = 1
+position = Vector2(-45.714, 0)
+scale = Vector2(1.428571, 1.428571)
+centered = false
+
+[node name="Backdrop2" type="Sprite2D" parent="." unique_id=803825763]
+texture_filter = 1
+position = Vector2(-45.714, -731.429)
+scale = Vector2(1.428571, 1.428571)
+centered = false
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=624425383]
+
+[node name="UI" type="Control" parent="UILayer" unique_id=1712083422]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FromBelowLogo" type="Sprite2D" parent="UILayer/UI" unique_id=1797650876]
+position = Vector2(285, 190.00002)
+scale = Vector2(0.10968742, 0.10968749)
+texture = ExtResource("2_mhnvy")
+
+[node name="Buttons" type="Control" parent="UILayer/UI" unique_id=1900000100]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayButton" type="Button" parent="UILayer/UI/Buttons" unique_id=1953328181]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.5888889
+anchor_right = 0.2109375
+anchor_bottom = 0.65
+theme_override_font_sizes/font_size = 29
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="UILayer/UI/Buttons" unique_id=1613240636]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.6777778
+anchor_right = 0.2109375
+anchor_bottom = 0.7388889
+theme_override_font_sizes/font_size = 29
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="UILayer/UI/Buttons" unique_id=586732612]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.7666667
+anchor_right = 0.2109375
+anchor_bottom = 0.8277778
+theme_override_font_sizes/font_size = 29
+text = "Credits"
+
+[node name="CloseButton" type="Button" parent="UILayer/UI/Buttons" unique_id=1263325333]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.8555556
+anchor_right = 0.2109375
+anchor_bottom = 0.9166667
+theme_override_font_sizes/font_size = 29
+text = "Close"
+
+[node name="CreditsPanel" type="ColorRect" parent="UILayer/UI" unique_id=1788132304]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CreditsClip" type="Control" parent="UILayer/UI/CreditsPanel" unique_id=338766730]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CreditsText" type="Label" parent="UILayer/UI/CreditsPanel/CreditsClip" unique_id=604325472]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1157577543]
+stream = ExtResource("3_mhnvy")
+autoplay = true
+
+[node name="Options" parent="." unique_id=1584851696 instance=ExtResource("5_options")]
+visible = false
+
+[node name="TitleLogo" type="Sprite2D" parent="." unique_id=1102597039]
+texture_filter = 1
+position = Vector2(19, 25)
+scale = Vector2(0.2637037, 0.26370373)
+centered = false
+
+[connection signal="pressed" from="UILayer/UI/Buttons/PlayButton" to="." method="clickPlay"]
+[connection signal="pressed" from="UILayer/UI/Buttons/OptionsButton" to="." method="optionsMenu"]
+[connection signal="pressed" from="UILayer/UI/Buttons/CreditsButton" to="." method="showCredits"]
+[connection signal="pressed" from="UILayer/UI/Buttons/CloseButton" to="." method="closeGame"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://0k8nd0k1156y" path="res://scripts/pause.gd" id="1_pause"]
+
+[node name="Pause" type="CanvasLayer"]
+layer = 10
+process_mode = 3
+script = ExtResource("1_pause")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Dim" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.2)
+
+[node name="PauseText" type="Label" parent="UI"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_top = 0.2777778
+anchor_bottom = 0.3888889
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 58
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="UI"]
+layout_mode = 1
+anchor_left = 0.40625
+anchor_top = 0.6777778
+anchor_right = 0.59375
+anchor_bottom = 0.7388889
+theme_override_font_sizes/font_size = 29
+text = "Continue"
+
+[node name="RestartButton" type="Button" parent="UI"]
+layout_mode = 1
+anchor_left = 0.40625
+anchor_top = 0.7666667
+anchor_right = 0.59375
+anchor_bottom = 0.8277778
+theme_override_font_sizes/font_size = 29
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="UI"]
+layout_mode = 1
+anchor_left = 0.40625
+anchor_top = 0.8555556
+anchor_right = 0.59375
+anchor_bottom = 0.9166667
+theme_override_font_sizes/font_size = 29
+text = "Exit"
+
+[connection signal="pressed" from="UI/ContinueButton" to="." method="onContinue"]
+[connection signal="pressed" from="UI/RestartButton" to="." method="onRestart"]
+[connection signal="pressed" from="UI/ExitButton" to="." method="onExit"]
