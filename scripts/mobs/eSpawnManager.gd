@@ -2,7 +2,7 @@ extends Node
 
 @export var eSpawnScene: PackedScene
 
-var eSpawnLimit = 4;
+@export var eSpawnLimit: int = 4
 var eSpawnCount = 0
 
 func _ready():

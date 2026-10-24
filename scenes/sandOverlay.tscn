@@ -5,8 +5,6 @@
 [node name="Node2D" type="Node2D" unique_id=703045629]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=863638864]
-modulate = Color(1, 1, 1, 0.3529412)
-visibility_layer = 32
-position = Vector2(591.9999, 640)
-scale = Vector2(1.1407408, 0.312037)
+position = Vector2(576, 1044)
+scale = Vector2(1.066667, 1.066667)
 texture = ExtResource("1_m1y0n")

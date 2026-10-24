@@ -44,5 +44,3 @@ func _on_area_entered(area: Area2D) -> void:
 	health = maxi(health - 1, 0)
 	invulnerability_time = 0.5
 	health_changed.emit(health)
-	if health == 0:
-		get_tree().paused = true

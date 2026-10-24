@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://scripts/minigame/MinigamePlayer.gd" id="1_006nn"]
 [ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://scripts/minigame/minigameMain.gd" id="1_v0jcj"]
-[ext_resource type="Texture2D" uid="uid://0py4f7a1kb3p" path="res://assets/minigame/GAudit_YellowDot.PNG" id="3_cbf36"]
+[ext_resource type="Texture2D" uid="uid://b06okka4uyrel" path="res://assets/sprites/Angler.PNG" id="3_angler"]
 [ext_resource type="PackedScene" path="res://scenes/screen_background.tscn" id="4_bg"]
-[ext_resource type="Script" uid="uid://ctc87to5d2l3g" path="res://scenes/minigame/camera_2d.gd" id="4_a6ty3"]
+[ext_resource type="Script" uid="uid://ctc87to5d2l3g" path="res://scenes/minigame/camera_2d.gd" id="5_cam"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqtq1"]
 radius = 20.09975
@@ -21,7 +21,7 @@ script = ExtResource("1_006nn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1265107294]
 scale = Vector2(0.08695652, 0.08695652)
-texture = ExtResource("3_cbf36")
+texture = ExtResource("3_angler")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1172784682]
 shape = SubResource("CircleShape2D_pqtq1")
@@ -47,6 +47,6 @@ text = "HP 10 / 10"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1757304769]
 position = Vector2(575, 325)
-script = ExtResource("4_a6ty3")
+script = ExtResource("5_cam")
 
 [connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
