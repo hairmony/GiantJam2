@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://scripts/minigame/MinigamePlayer.gd" id="1_006nn"]
 [ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://scripts/minigame/minigameMain.gd" id="1_v0jcj"]
 [ext_resource type="Texture2D" uid="uid://b06okka4uyrel" path="res://assets/sprites/Angler.PNG" id="3_angler"]
+[ext_resource type="Texture2D" uid="uid://0py4f7a1kb3p" path="res://assets/minigame/GAudit_YellowDot.png" id="3_cbf36"]
 [ext_resource type="PackedScene" path="res://scenes/screen_background.tscn" id="4_bg"]
 [ext_resource type="Script" uid="uid://ctc87to5d2l3g" path="res://scenes/minigame/camera_2d.gd" id="5_cam"]
 
@@ -28,22 +29,12 @@ shape = SubResource("CircleShape2D_pqtq1")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=435488874]
 
-[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=1289000846]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 216.0
-offset_bottom = 40.0
-mouse_filter = 2
-max_value = 10.0
-value = 10.0
-show_percentage = false
-
-[node name="HealthLabel" type="Label" parent="HUD" unique_id=701633478]
+[node name="LivesLabel" type="Label" parent="HUD"]
 offset_left = 16.0
 offset_top = 44.0
 offset_right = 280.0
 offset_bottom = 70.0
-text = "HP 10 / 10"
+text = "LIVES 3 / 3"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1757304769]
 position = Vector2(575, 325)

@@ -30,6 +30,7 @@ func onContinue() -> void:
 func onRestart() -> void:
 	isPaused = false
 	get_tree().paused = false
+	GameManager.begin_play()
 	get_tree().reload_current_scene()
 
 

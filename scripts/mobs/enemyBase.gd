@@ -19,29 +19,14 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("lure") && !GameManager.isMinigame:
-		GameManager.isMinigame = !GameManager.isMinigame
-		load_sub_scene("res://scenes/minigame/minigameMain.tscn")
-		pass 
-		
-#func load_overlay_scene():
-	## 1. Load the scene file from your resources
-	#var overlay_scene = load("res://scenes/minigame/minigameMain.tscn")
-	#
-	## 2. Instantiate the scene to create a concrete instance of it
-	#var overlay_instance = overlay_scene.instantiate()
-	#
-	## 3. Add it as a child to the current scene so it displays on top
-	#add_child(overlay_instance)
-	#
+	if body.is_in_group("lure") and not GameManager.isMinigame:
+		GameManager.isMinigame = true
+		# Instantiation changes processing and collision state outside physics callbacks.
+		load_sub_scene.call_deferred("res://scenes/minigame/minigameMain.tscn")
+
 func load_sub_scene(scene_path: String) -> void:
-	# 1. Pause the main game tree
-	#get_tree().paused = true
-	
-	# 2. Load and instantiate the new scene
 	var new_scene_packed: PackedScene = load(scene_path)
 	var new_scene_instance: Node = new_scene_packed.instantiate()
-	new_scene_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-	
-	# 3. Add it to the tree root so it sits on top of everything
-	get_tree().root.add_child(new_scene_instance)
+	new_scene_instance.source_ship = self
+	# Ownership by the exploration scene also cleans up overlays on restart/exit.
+	get_tree().current_scene.add_child(new_scene_instance)

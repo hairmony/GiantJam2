@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvst"]
 size = Vector2(8, 14)
 
-[node name="Enemy" type="Node" unique_id=625473931]
+[node name="Enemy" type="Node2D" unique_id=625473931]
 
 [node name="EnemyBody" type="CharacterBody2D" parent="." unique_id=1761480814]
 collision_layer = 2
