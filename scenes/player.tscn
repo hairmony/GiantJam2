@@ -27,7 +27,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_ngi1j")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="PlayerBody" unique_id=352671064]
-scale = Vector2(0.008347245, 0.0155763235)
+scale = Vector2(0.017374, 0.017374)
 texture = ExtResource("2_fjrip")
 
 [node name="LureBody" type="CharacterBody2D" parent="PlayerBody" unique_id=1262130314 groups=["lure"]]

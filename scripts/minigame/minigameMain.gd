@@ -4,6 +4,7 @@ const ROUND_SECONDS := 10.0
 const HIT_PENALTY_SECONDS := 5.0
 const TURRET_SCENE := preload("res://scenes/minigame/turret.tscn")
 const PAUSE_SCENE := preload("res://scenes/pause.tscn")
+const DEATH_SCENE := preload("res://scenes/death.tscn")
 
 var source_ship: Node2D
 var _exploration: Node
@@ -11,6 +12,7 @@ var _exploration_process_mode: int
 var _previous_camera: Camera2D
 var _pause: Node = null
 var _finished := false
+var _hidden_exploration: Array[Node] = []
 
 func _enter_tree() -> void:
 	# Keep the exploration instance, but stop its movement and spawning.
@@ -19,6 +21,11 @@ func _enter_tree() -> void:
 	if _exploration != self and _exploration != null:
 		_exploration_process_mode = _exploration.process_mode
 		_exploration.process_mode = Node.PROCESS_MODE_DISABLED
+		for child in _exploration.get_children():
+			if child == self or not child.visible:
+				continue
+			child.visible = false
+			_hidden_exploration.append(child)
 	_previous_camera = get_viewport().get_camera_2d()
 
 func _ready() -> void:
@@ -56,10 +63,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _update_lives(lives: int) -> void:
 	$HUD/LivesLabel.text = "LIVES %d / %d" % [lives, $Player.MAX_LIVES]
 
-func _on_health_changed(health: int) -> void:
-	$HUD/HealthBar.value = health
-	$HUD/HealthLabel.text = "HP %d / %d" % [health, $Player.max_health]
-
 func _on_lives_changed(lives: int) -> void:
 	if _finished:
 		return
@@ -93,6 +96,10 @@ func _restore_exploration() -> void:
 	GameManager.minigameTimer = 0.0
 	if is_instance_valid(_exploration) and _exploration != self:
 		_exploration.process_mode = _exploration_process_mode
+	for node in _hidden_exploration:
+		if is_instance_valid(node):
+			node.visible = true
+	_hidden_exploration.clear()
 	if is_instance_valid(_previous_camera):
 		_previous_camera.make_current()
 

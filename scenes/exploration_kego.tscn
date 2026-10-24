@@ -26,7 +26,7 @@ position = Vector2(342, 436.6)
 enabled = false
 
 [node name="AnimatedSprite2D" parent="Player/PlayerBody"]
-scale = Vector2(0.726, 0.726)
+scale = Vector2(0.017374, 0.017374)
 
 [node name="AnimatedSprite2D" parent="Player/LureBody"]
 visible = false

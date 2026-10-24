@@ -43,5 +43,4 @@ func _on_area_entered(area: Area2D) -> void:
 		return
 	lives = maxi(lives - 1, 0)
 	invulnerability_time = 0.5
-	health_changed.emit(health)
 	lives_changed.emit(lives)
