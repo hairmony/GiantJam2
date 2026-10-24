@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6a4p2aha4jww" path="res://scripts/minigame/MinigamePlayer.gd" id="1_006nn"]
 [ext_resource type="Script" uid="uid://dleh82ij8swqs" path="res://scripts/minigame/minigameMain.gd" id="1_v0jcj"]
 [ext_resource type="Texture2D" uid="uid://b0r7yaerh3hpa" path="res://assets/minigame/Angler.PNG" id="3_angler"]
-[ext_resource type="Texture2D" uid="uid://0py4f7a1kb3p" path="res://assets/minigame/GAudit_YellowDot.png" id="3_cbf36"]
+[ext_resource type="Material" path="res://shaders/white_outline.tres" id="outline_material"]
 [ext_resource type="PackedScene" path="res://scenes/screen_background.tscn" id="4_bg"]
 [ext_resource type="Script" uid="uid://ctc87to5d2l3g" path="res://scenes/minigame/camera_2d.gd" id="5_cam"]
 [ext_resource type="AudioStream" uid="uid://knuev2jm0g04" path="res://assets/music/GJ2_GROUPONE_BUILDUP.mp3" id="6_build"]

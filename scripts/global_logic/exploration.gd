@@ -1,7 +1,10 @@
 extends Node2D
 
 const SHIP_SCENE := preload("res://scenes/Enemy.tscn")
+const FISHERMAN_SCENE := preload("res://scenes/fisherman_visit.tscn")
 var _spawn_on_right := true
+var _hook_wait := 0.0
+var _visit: Node = null
 
 func _ready() -> void:
 	var music := $Music as AudioStreamPlayer
@@ -9,6 +12,18 @@ func _ready() -> void:
 	if music.stream != null and "loop" in music.stream:
 		music.stream.loop = true
 	music.play()
+	_hook_wait = randf_range(0.0, 3.0)
+
+
+func _process(delta: float) -> void:
+	if is_instance_valid(_visit):
+		return
+	_hook_wait -= delta
+	if _hook_wait > 0.0:
+		return
+	_hook_wait = randf_range(0.0, 3.0)
+	_visit = FISHERMAN_SCENE.instantiate()
+	add_child(_visit)
 
 func on_ship_sunk(ship_body: Node2D) -> void:
 	if is_instance_valid(ship_body):

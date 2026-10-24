@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://hpjta2y2qsux"]
 
-[ext_resource type="Script" uid="uid://crcbi55xqq3ux" path="res://eSpawnManager.gd" id="1_ltnhx"]
-[ext_resource type="PackedScene" uid="uid://j5jrnwjtdxan" path="res://e_collision.tscn" id="2_w7vf7"]
-[ext_resource type="PackedScene" uid="uid://cf6kqv1wcgic" path="res://player.tscn" id="3_wffdw"]
+[ext_resource type="Script" uid="uid://crcbi55xqq3ux" path="res://scripts/mobs/eSpawnManager.gd" id="1_ltnhx"]
+[ext_resource type="PackedScene" uid="uid://j5jrnwjtdxan" path="res://scenes/e_collision.tscn" id="2_w7vf7"]
+[ext_resource type="PackedScene" uid="uid://cf6kqv1wcgic" path="res://scenes/player.tscn" id="3_wffdw"]
 [ext_resource type="PackedScene" path="res://scenes/screen_background.tscn" id="4_dybl0"]
-[ext_resource type="PackedScene" uid="uid://mncaucfiqkmm" path="res://sandOverlay.tscn" id="5_mb7rp"]
-[ext_resource type="PackedScene" uid="uid://b14kw4n8q3t1n" path="res://seaWeedOverlay.tscn" id="6_4vkhg"]
+[ext_resource type="PackedScene" uid="uid://mncaucfiqkmm" path="res://scenes/sandOverlay.tscn" id="5_mb7rp"]
+[ext_resource type="PackedScene" uid="uid://b14kw4n8q3t1n" path="res://scenes/seaWeedOverlay.tscn" id="6_4vkhg"]
 
 [sub_resource type="Curve2D" id="Curve2D_88ct5"]
 _data = {
@@ -19,17 +19,6 @@ eSpawnScene = ExtResource("2_w7vf7")
 eSpawnLimit = 0
 
 [node name="Player" parent="." unique_id=1926558782 instance=ExtResource("3_wffdw")]
-z_index = 1
-position = Vector2(342, 436.6)
-
-[node name="Camera2D" parent="Player"]
-enabled = false
-
-[node name="AnimatedSprite2D" parent="Player/PlayerBody"]
-scale = Vector2(0.017374, 0.017374)
-
-[node name="AnimatedSprite2D" parent="Player/LureBody"]
-visible = false
 
 [node name="eSpawnTimer" type="Timer" parent="." unique_id=1844165367]
 
@@ -41,7 +30,7 @@ autostart = true
 [node name="pStart" type="Marker2D" parent="." unique_id=1805467664]
 position = Vector2(240, 450)
 
-[node name="ScreenBackground" parent="." instance=ExtResource("4_dybl0")]
+[node name="ScreenBackground" parent="." unique_id=1068964992 instance=ExtResource("4_dybl0")]
 
 [node name="Sand" parent="." unique_id=703045629 instance=ExtResource("5_mb7rp")]
 
@@ -50,15 +39,15 @@ position = Vector2(240, 450)
 [node name="SeaWeed2" parent="." unique_id=2080660188 instance=ExtResource("6_4vkhg")]
 position = Vector2(984.4, 0)
 
-[node name="Enemy1" parent="." instance=ExtResource("2_w7vf7")]
+[node name="Enemy1" parent="." unique_id=1783030335 instance=ExtResource("2_w7vf7")]
 position = Vector2(526.5, 3)
 scale = Vector2(0.962, 0.962)
 
-[node name="Enemy2" parent="." instance=ExtResource("2_w7vf7")]
+[node name="Enemy2" parent="." unique_id=2027138499 instance=ExtResource("2_w7vf7")]
 position = Vector2(711, 3)
 scale = Vector2(0.962, 0.962)
 
-[node name="Enemy3" parent="." instance=ExtResource("2_w7vf7")]
+[node name="Enemy3" parent="." unique_id=782955295 instance=ExtResource("2_w7vf7")]
 position = Vector2(919, 3)
 scale = Vector2(0.962, 0.962)
 
